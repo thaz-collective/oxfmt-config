@@ -1,0 +1,59 @@
+{
+  "name": "@thaz/oxfmt-config",
+  "version": "1.0.0-rc.1",
+  "description": "Oxfmt configuration for applications and libraries in the thaz collective namespace",
+  "keywords": [
+    "config",
+    "format",
+    "oxfmt"
+  ],
+  "homepage": "https://github.com/thaz-collective/oxfmt-config#readme",
+  "bugs": {
+    "url": "https://github.com/thaz-collective/oxfmt-config/issues"
+  },
+  "license": "MIT",
+  "author": "Tim Hazlett",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thaz-collective/oxfmt-config.git"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/config.d.mts",
+      "import": "./dist/config.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest"
+  },
+  "scripts": {
+    "prepack": "vp run build",
+    "taze": "vpx taze@latest -Ilwr --maturity-period 3",
+    "taze:major": "vpx taze@latest major -Ilwr --maturity-period 3",
+    "taze:minor": "vpx taze@latest minor -Ilwr --maturity-period 3",
+    "taze:patch": "vpx taze@latest patch -Ilwr --maturity-period 3"
+  },
+  "devDependencies": {
+    "@thaz/typescript-config": "catalog:",
+    "@types/node": "catalog:",
+    "oxfmt": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vite-plugin-externalize-deps": "catalog:",
+    "vite-plus": "catalog:"
+  },
+  "peerDependencies": {
+    "oxfmt": "^0.57.0"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "pnpm@11.11.0"
+}
