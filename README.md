@@ -9,7 +9,7 @@ The purpose of this project is to have a common starting point for formatting co
 - Install Vite+ or Oxfmt and config:
 
   ```bash
-  vp add -D vite-plus @thaz/oxfmt-config
+  vp add -D vite-plus oxfmt @thaz/oxfmt-config
   ```
 
 - Update your Vite+ config with the formatting section:

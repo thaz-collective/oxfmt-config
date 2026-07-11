@@ -1,40 +1,64 @@
 import { defineConfig } from 'oxfmt';
 
+/**
+ * Import-sorting pattern group for the `oxfmt` package.
+ */
 export const oxFmtConfigPatterns = {
   elementNamePattern: ['oxfmt'],
   groupName: 'oxfmt',
 };
 
+/**
+ * Import-sorting pattern group for `oxlint` and `oxlint-tsgolint`.
+ */
 export const oxLintConfigPatterns = {
   elementNamePattern: ['oxlint', 'oxlint-tsgolint'],
   groupName: 'oxlint',
 };
 
+/**
+ * Import-sorting pattern group for bundler packages (tsdown, rolldown, rollup).
+ */
 export const bundlingConfigPatterns = {
   elementNamePattern: ['tsdown', 'rolldown', 'rollup-**', 'rolldown-**'],
   groupName: 'bundling',
 };
 
+/**
+ * Import-sorting pattern group for Vite, Vitest and related packages
+ */
 export const viteConfigPatterns = {
   elementNamePattern: ['vite-plus', 'vite', 'vitest', '@vite/**', '@vitest/**', '@vitejs/**', 'vite-**', 'vitest-**'],
   groupName: 'vite',
 };
 
+/**
+ * Import-sorting pattern group for `react` and `react-dom`.
+ */
 export const reactConfigPatterns = {
   elementNamePattern: ['react', 'react-dom'],
   groupName: 'react',
 };
 
+/**
+ * Import-sorting pattern group for `@tanstack/*` packages.
+ */
 export const tanstackConfigPatterns = {
   elementNamePattern: ['@tanstack/**'],
   groupName: 'tanstack',
 };
 
-export const thazstackConfigPatterns = {
-  elementNamePattern: ['@thazstack/**'],
-  groupName: 'thazstack',
+/**
+ * Import-sorting pattern group for `@thaz/*` packages.
+ */
+export const thazConfigPatterns = {
+  elementNamePattern: ['@thaz/**'],
+  groupName: 'thaz',
 };
 
+/**
+ * Shared Oxfmt configuration for thaz-collective projects: formatting style plus import sort order/grouping.
+ */
 export const oxfmtConfig = defineConfig({
   // These values can clash with editorconfig so keep in sync
   endOfLine: 'lf',
@@ -75,6 +99,8 @@ export const oxfmtConfig = defineConfig({
     'route-tree.gen.ts',
   ],
 
+  sortPackageJson: true,
+
   sortImports: {
     order: 'asc',
     newlinesBetween: false,
@@ -92,6 +118,12 @@ export const oxfmtConfig = defineConfig({
         ...oxLintConfigPatterns,
         selector: 'type',
         groupName: `type-${oxLintConfigPatterns.groupName}`,
+      },
+      bundlingConfigPatterns,
+      {
+        ...bundlingConfigPatterns,
+        selector: 'type',
+        groupName: `type-${bundlingConfigPatterns.groupName}`,
       },
       viteConfigPatterns,
       {
@@ -111,11 +143,11 @@ export const oxfmtConfig = defineConfig({
         selector: 'type',
         groupName: `type-${tanstackConfigPatterns.groupName}`,
       },
-      thazstackConfigPatterns,
+      thazConfigPatterns,
       {
-        ...thazstackConfigPatterns,
+        ...thazConfigPatterns,
         selector: 'type',
-        groupName: `type-${thazstackConfigPatterns.groupName}`,
+        groupName: `type-${thazConfigPatterns.groupName}`,
       },
     ],
     groups: [
@@ -133,6 +165,8 @@ export const oxfmtConfig = defineConfig({
 
       [`type-${viteConfigPatterns.groupName}`],
       [viteConfigPatterns.groupName],
+      [`type-${bundlingConfigPatterns.groupName}`],
+      [bundlingConfigPatterns.groupName],
 
       { newlinesBetween: true },
 
@@ -146,8 +180,8 @@ export const oxfmtConfig = defineConfig({
 
       { newlinesBetween: true },
 
-      [`type-${thazstackConfigPatterns.groupName}`],
-      [thazstackConfigPatterns.groupName],
+      [`type-${thazConfigPatterns.groupName}`],
+      [thazConfigPatterns.groupName],
 
       { newlinesBetween: true },
 
