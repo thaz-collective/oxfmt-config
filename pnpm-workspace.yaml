@@ -15,3 +15,12 @@ minimumReleaseAge: 4320 # 3 days just to be safe with the uptick of supply chain
 
 minimumReleaseAgeExclude:
   - '@thaz/typescript-config@1.0.0-rc.1'
+
+overrides:
+  vite: 'catalog:'
+
+peerDependencyRules:
+  allowAny:
+    - vite
+  allowedVersions:
+    vite: '*'

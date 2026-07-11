@@ -50,11 +50,11 @@ export default defineConfig({
       },
     },
   },
+  fmt: oxfmtConfig,
   lint: {
     options: {
       typeAware: true,
       typeCheck: true,
     },
   },
-  fmt: oxfmtConfig,
 });
