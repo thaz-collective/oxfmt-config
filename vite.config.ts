@@ -22,9 +22,6 @@ export default defineConfig({
       fmt: {
         command: 'vp fmt',
       },
-      typecheck: {
-        command: 'vp check --no-fmt --no-lint',
-      },
     },
   },
   resolve: {
