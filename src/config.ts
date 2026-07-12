@@ -94,7 +94,6 @@ export const oxfmtConfig = defineConfig({
     '.tanstack-start/**',
 
     'pnpm-lock.yaml',
-    'pnpm-workspace.yaml',
 
     'route-tree.gen.ts',
   ],
