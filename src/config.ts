@@ -28,7 +28,20 @@ export const bundlingConfigPatterns = {
  * Import-sorting pattern group for Vite, Vitest and related packages
  */
 export const viteConfigPatterns = {
-  elementNamePattern: ['vite-plus', 'vite', 'vitest', '@vite/**', '@vitest/**', '@vitejs/**', 'vite-**', 'vitest-**'],
+  elementNamePattern: [
+    'vite-plus',
+    'vite-plus/**',
+    'vite-plus-**',
+    'vite',
+    'vite/**',
+    '@vite/**',
+    '@vitejs/**',
+    'vite-**',
+    'vitest',
+    'vitest/**',
+    '@vitest/**',
+    'vitest-**',
+  ],
   groupName: 'vite',
 };
 
