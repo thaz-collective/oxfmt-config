@@ -20,7 +20,19 @@ export const oxLintConfigPatterns = {
  * Import-sorting pattern group for bundler packages (tsdown, rolldown, rollup).
  */
 export const bundlingConfigPatterns = {
-  elementNamePattern: ['tsdown', 'rolldown', 'rollup-**', 'rolldown-**'],
+  elementNamePattern: [
+    'tsdown',
+    'rolldown',
+    'rolldown/**',
+    'rolldown-**',
+    '**-rolldown',
+    '**/rolldown',
+    'rollup',
+    'rollup/**',
+    'rollup-**',
+    '**-rollup',
+    '**/rollup',
+  ],
   groupName: 'bundling',
 };
 
@@ -34,11 +46,13 @@ export const viteConfigPatterns = {
     'vite-plus-**',
     'vite',
     'vite/**',
+    '**/vite',
     '@vite/**',
     '@vitejs/**',
     'vite-**',
     'vitest',
     'vitest/**',
+    '**/vitest',
     '@vitest/**',
     'vitest-**',
   ],
