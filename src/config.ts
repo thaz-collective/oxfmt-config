@@ -37,25 +37,26 @@ export const bundlingConfigPatterns = {
 };
 
 /**
- * Import-sorting pattern group for Vite, Vitest and related packages
+ * Import-sorting pattern group for Vite+ and related packages
+ */
+export const vitePlusConfigPatterns = {
+  elementNamePattern: ['vite-plus', 'vite-plus/**', 'vite-plus-**'],
+  groupName: 'vitePlus',
+};
+
+/**
+ * Import-sorting pattern group for Vite and related packages
  */
 export const viteConfigPatterns = {
-  elementNamePattern: [
-    'vite-plus',
-    'vite-plus/**',
-    'vite-plus-**',
-    'vite',
-    'vite/**',
-    '**/vite',
-    '@vite/**',
-    '@vitejs/**',
-    'vite-**',
-    'vitest',
-    'vitest/**',
-    '**/vitest',
-    '@vitest/**',
-    'vitest-**',
-  ],
+  elementNamePattern: ['vite', 'vite/**', 'vite-**', '**/vite', '**-vite', '@vite/**', '@vitejs/**'],
+  groupName: 'vite',
+};
+
+/**
+ * Import-sorting pattern group for Vitest and related packages
+ */
+export const vitestConfigPatterns = {
+  elementNamePattern: ['vitest', 'vitest/**', 'vitest-**', '**/vitest', '**-vitest', '@vitest/**', '@vitestjs/**'],
   groupName: 'vite',
 };
 
@@ -151,11 +152,23 @@ export const oxfmtConfig = defineConfig({
         selector: 'type',
         groupName: `type-${bundlingConfigPatterns.groupName}`,
       },
+      vitePlusConfigPatterns,
+      {
+        ...vitePlusConfigPatterns,
+        selector: 'type',
+        groupName: `type-${vitePlusConfigPatterns.groupName}`,
+      },
       viteConfigPatterns,
       {
         ...viteConfigPatterns,
         selector: 'type',
         groupName: `type-${viteConfigPatterns.groupName}`,
+      },
+      vitestConfigPatterns,
+      {
+        ...vitestConfigPatterns,
+        selector: 'type',
+        groupName: `type-${vitestConfigPatterns.groupName}`,
       },
       reactConfigPatterns,
       {
@@ -189,8 +202,12 @@ export const oxfmtConfig = defineConfig({
 
       { newlinesBetween: true },
 
+      [`type-${vitePlusConfigPatterns.groupName}`],
+      [vitePlusConfigPatterns.groupName],
       [`type-${viteConfigPatterns.groupName}`],
       [viteConfigPatterns.groupName],
+      [`type-${vitestConfigPatterns.groupName}`],
+      [vitestConfigPatterns.groupName],
       [`type-${bundlingConfigPatterns.groupName}`],
       [bundlingConfigPatterns.groupName],
 
