@@ -14,3 +14,4 @@ pnpm-debug.log*
 # Extra Folders
 .vscode/
 !.vscode/extensions.json
+.idea/

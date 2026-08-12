@@ -1,6 +1,6 @@
 {
   "name": "@thaz/oxfmt-config",
-  "version": "1.0.0-rc.1",
+  "version": "1.0.0-rc.2",
   "description": "Oxfmt configuration for applications and libraries in the thaz collective namespace",
   "keywords": [
     "config",
@@ -50,10 +50,10 @@
     "vite-plus": "catalog:"
   },
   "peerDependencies": {
-    "oxfmt": "^0.57.0"
+    "oxfmt": "^0.62.0"
   },
   "engines": {
     "node": ">=24"
   },
-  "packageManager": "pnpm@11.11.0"
+  "packageManager": "pnpm@11.21.0"
 }
